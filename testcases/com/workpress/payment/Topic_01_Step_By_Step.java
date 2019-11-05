@@ -37,7 +37,7 @@ public class Topic_01_Step_By_Step {
   @Test
   public void TC_01_Register() {
 //	  Click to Register
-	  driver.findElement(By.xpath("//a[@class='ico-register']")).click();
+	  driver.findElement(By.xpath("//a[@class='ico-register' and text()='Register']")).click();
 	  
 //	  Verify Register Page displayed
 	  Assert.assertTrue(driver.findElement(By.xpath("//div[@class='registration-page']")).isDisplayed());
