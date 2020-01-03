@@ -1,0 +1,13 @@
+2019-12-31 11:05:31,908 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Validate - Step_01: Click to register link
+2019-12-31 11:05:33,513 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Validate - Step_02: Click to register button
+2019-12-31 11:06:03,568 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Register - Step 01: Click to Register link
+2019-12-31 11:06:05,049 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Register - Step 02: Verify Register is displayed
+2019-12-31 11:06:05,150 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element -  -------------------------- PASSED -------------------------- 
+2019-12-31 11:06:05,152 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Register - Step 03: Input data to all required fields
+2019-12-31 11:06:35,636 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Login - Step 01: Click to Login link
+2019-12-31 11:06:40,020 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Login - Step 02: Verify Login Page is displayed
+2019-12-31 11:06:40,139 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element -  -------------------------- PASSED -------------------------- 
+2019-12-31 11:06:40,139 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Login - Step 03: Input to email and password textbox
+2019-12-31 11:06:40,282 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - Login - Step 04: Click to Login button
+2019-12-31 11:07:10,306 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - OS name = windows 10
+2019-12-31 11:07:11,142 INFO  com.nopcommerce.framework.Level_13_Dynamic_Page_Element - ---------- QUIT BROWSER SUCCESS ----------

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Nop Commerce" parallel="tests" thread-count="4">
+  <listeners>
+    <listener class-name="commons.MethodListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  
+  </listeners>
+
+  <test name="Run on FIREFOX UI">
+  <parameter name ="browser" value="firefox_ui" />
+    <classes>
+      <class name="com.nopcommerce.frontend.FE_01_Register"/>
+    </classes>
+  </test> 
+
+  
+</suite> 
