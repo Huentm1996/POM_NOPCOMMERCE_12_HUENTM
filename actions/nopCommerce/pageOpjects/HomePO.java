@@ -3,6 +3,7 @@
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPageObject;
+import nopCommerce.pageUIs.AbstractPageNopcommerceUI;
 import nopCommerce.pageUIs.HomePageUI;
 import nopCommerce.pageUIs.RegisterPageUI;
 
@@ -18,14 +19,20 @@ public class HomePO extends AbstractPageObject {
 		waitToElementVisible(HomePageUI.HEADER_REGISTER_LINK);
 		ClickToElement(HomePageUI.HEADER_REGISTER_LINK);
 //		ClickToElement(HomePageUI.REGISTER_LINK);
-		return PageGeneratorManager.getRegisterPage(DriverGlobal);
+		return nopCommercePageGeneratorManager.getRegisterPage(DriverGlobal);
 	}
 
 	public LoginPO clickToLoginLink() {
 		waitToElementVisible(HomePageUI.HEADER_LOGIN_LINK);
 		ClickToElement(HomePageUI.HEADER_LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(DriverGlobal);
+		return nopCommercePageGeneratorManager.getLoginPage(DriverGlobal);
 	}
+	
+//	public HomePO clickToMyAccountLink() {
+//		waitToElementVisible(AbstractPageNopcommerceUI.FOOTER_MY_ACCOUNT_LINK);
+//		ClickToElement(AbstractPageNopcommerceUI.FOOTER_MY_ACCOUNT_LINK);
+//		return nopCommercePageGeneratorManager.getMyAccountPage(driver);
+//	}
 
 	public boolean isMyAccountLinkDisplayed() {
 		waitToElementVisible(HomePageUI.HEADER_MY_ACCOUNT_LINK);
@@ -37,11 +44,17 @@ public class HomePO extends AbstractPageObject {
 		return isElementDisplayed(HomePageUI.HEADER_LOGOUT_LINK);
 	}
 
-//	public HeaderMyAccountPO openHeaderMyAccountPage(WebDriver driver) {
-//		waitToElementVisible(HomePageUI.HEADER_MY_ACCOUNT_LINK);
-//		ClickToElement(HomePageUI.HEADER_MY_ACCOUNT_LINK);
-//		return PageGeneratorManager.getHeaderMyAccountPO(driver);
-//	}
+	public HeaderMyAccountPO openHeaderMyAccountPage(WebDriver driver) {
+		waitToElementVisible(HomePageUI.HEADER_MY_ACCOUNT_LINK);
+		ClickToElement(HomePageUI.HEADER_MY_ACCOUNT_LINK);
+		return nopCommercePageGeneratorManager.getHeaderMyAccountPO(driver);
+	}
+	
+	public FooterMyAccountPO openFooterMyAccountPage(WebDriver driver) {
+		waitToElementVisible(HomePageUI.FOOTER_MY_ACCOUNT_LINK);
+		ClickToElement(HomePageUI.FOOTER_MY_ACCOUNT_LINK);
+		return nopCommercePageGeneratorManager.getFooterMyAccountPage(driver);
+	}
 	
 	public boolean isRegisterLinkUndisplayed() {
 		waitToElementInvisible(HomePageUI.HEADER_REGISTER_LINK);
@@ -56,7 +69,7 @@ public class HomePO extends AbstractPageObject {
 	public LoginPO openLoginPage() {
 		waitToElementVisible(HomePageUI.HEADER_LOGIN_LINK);
 		ClickToElement(HomePageUI.HEADER_LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(DriverGlobal);		
+		return nopCommercePageGeneratorManager.getLoginPage(DriverGlobal);		
 	}
 
 

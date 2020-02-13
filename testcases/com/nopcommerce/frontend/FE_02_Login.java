@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import commons.AbstractTest;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 
 public class FE_02_Login extends AbstractTest{
@@ -33,10 +33,33 @@ public class FE_02_Login extends AbstractTest{
 			
 			email = "jond_wick_" + randomNumber() + "@hotmail.com";
 			password = "AutomationTesting";
-			homePage = PageGeneratorManager.getHomePage(driver);
-	  
+			
+			homePage = nopCommercePageGeneratorManager.getHomePage(driver);
+			  log.info("Register - Step 01: Click to Register link");
+			  registerPage = homePage.openRegisterPage(driver);
+			  
+			  log.info("Register - Step 02: Verify Register is displayed");
+			  verifyTrue(registerPage.isRegisterPageDisplayed());
+			    
+			  log.info("Register - Step 03: Input data to all required fields");
+			  registerPage.clickToGenderRadioButton();
+			  registerPage.inputToFirstnameTextbox("John");
+			  registerPage.inputToLastnameTextbox("Wick");
+			  registerPage.inputToEmailTextbox(email);
+			  registerPage.inputToPasswordTextbox("123123");
+			  registerPage.inputToComfirmPasswordTextbox("123123");
+			  registerPage.clickToRegisterButton();
+			  
+			  log.info("Register - Step 04: Verify success message displayed-01");
+			  verifyTrue(registerPage.isSuccessMessageDisplayed());
+			  
+			  log.info("Register - Step 05: Verify success massage displayed-02");
+			  verifyEquals(registerPage.getSuccessMessageText(), "Your registration completed");
+			  
+			  log.info("Register - Step 06: Click to Logout Link");
+			  homePage = registerPage.clickToLogoutLink();
   }
-  @Test
+//  @Test
   public void TC_01_Login_with_EmptyData() {
 	  log.info("Login - Step 01: Login Link");
 	  loginPage = homePage.openLoginPage();
@@ -57,7 +80,7 @@ public class FE_02_Login extends AbstractTest{
 	  verifyFalse(homePage.isLogoutLinkDisplay());
   }
   
-  @Test
+//  @Test
   public void TC_02_Login_with_InvalidEmail() {
 	  log.info("Login - Step 01: Login Link");
 	  loginPage = homePage.openLoginPage();
@@ -78,7 +101,7 @@ public class FE_02_Login extends AbstractTest{
 	  verifyFalse(homePage.isLogoutLinkDisplay());
   }
   
-  @Test
+//  @Test
   public void TC_03_Login_with_UnRegisteredEmail() {
 	  log.info("Login - Step 01: Login Link");
 	  loginPage = homePage.openLoginPage();
@@ -98,7 +121,7 @@ public class FE_02_Login extends AbstractTest{
 	  verifyFalse(homePage.isMyAccountLinkDisplayed());
 	  verifyFalse(homePage.isLogoutLinkDisplay());  
   }
-  @Test
+//  @Test
   public void TC_04_Login_with_RegisteredEmail_emptyPassword() {
 	  log.info("Login - Step 01: Login Link");
 	  loginPage = homePage.openLoginPage();
@@ -118,7 +141,7 @@ public class FE_02_Login extends AbstractTest{
 	  verifyFalse(homePage.isMyAccountLinkDisplayed());
 	  verifyFalse(homePage.isLogoutLinkDisplay());  
   }
-  @Test
+//  @Test
   public void TC_05_Login_with_RegisteredEmail_WrongPassword() {
 	  log.info("Login - Step 01: Login Link");
 	  loginPage = homePage.openLoginPage();
@@ -147,14 +170,13 @@ public class FE_02_Login extends AbstractTest{
 	  verifyTrue(loginPage.isLoginPageDisplayed());
 	  
 	  log.info("Login - Step 03: Input data to all required fields");
-	  loginPage.inputToEmailTextbox("huetest@gmail.com");
+	  loginPage.inputToEmailTextbox(email);
 	  loginPage.inputToPasswordTextbox("123123");
-	  loginPage.clickToLoginButton();
 	  
 	  log.info("Login - Step 04: Click to login button");
 	  homePage = loginPage.clickToLoginButton();
 	  
-	  log.info("Login - Step 05: Verify My Account and Logout link displayed");
+//	  log.info("Login - Step 05: Verify My Account and Logout link displayed");
 	  verifyTrue(homePage.isMyAccountLinkDisplayed());
 	  verifyTrue(homePage.isLogoutLinkDisplay());  
   }

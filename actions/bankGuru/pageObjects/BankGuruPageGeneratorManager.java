@@ -2,7 +2,9 @@ package bankGuru.pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-public class PageGeneratorManager {
+import commons.AbstractPageObject;
+
+public class BankGuruPageGeneratorManager {
 	public static HomePO getHomePage(WebDriver driver) {
 		return new HomePO(driver);
 	}
@@ -46,5 +48,28 @@ public class PageGeneratorManager {
 	public static WithdrawalPO getWithdrawalPage(WebDriver driver) {
 		return new WithdrawalPO(driver);
 	}
+
+	public static EditAccountPO getEditAccountPage(WebDriver driver) {
+		return new EditAccountPO(driver);
+	}
+
+	public static AbstractPageObject getCustomisedStatementPage(WebDriver driver) {
+		return new CustomisedStatementPO(driver);
+	}
+
+	public static AbstractPageObject getFundTransferPage(WebDriver driver) {
+		return new FundTransferPO(driver);
+	}
+
+	public static AbstractPageObject getChangePasswordPage(WebDriver driver) {
+		return new ChangePasswordPO(driver);
+	}
+
+	public static AbstractPageObject getLogOutPage(WebDriver driver) {
+		return new LogOutPO(driver);
+	}
+
+	
+	
 
 }

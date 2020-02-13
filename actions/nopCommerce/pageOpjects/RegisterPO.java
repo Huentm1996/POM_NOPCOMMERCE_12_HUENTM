@@ -3,47 +3,55 @@ package nopCommerce.pageOpjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPageObject;
+import nopCommerce.pageUIs.AbstractPageNopcommerceUI;
 import nopCommerce.pageUIs.RegisterPageUI;
 
 public class RegisterPO extends AbstractPageObject {
 	WebDriver driver;
-	PageGeneratorManager pageGenerate;
+	nopCommercePageGeneratorManager pageGenerate;
 
 	public RegisterPO(WebDriver driverLocal) {
 //		G�?i đến constructor của class cha
 		super(driverLocal);
 		driver = driverLocal;
-		pageGenerate = new PageGeneratorManager();
+		pageGenerate = new nopCommercePageGeneratorManager();
 	}
 
 
-	public void clickToMaleRadioButton() {
+	public void clickToGenderRadioButton() {
 //		wait
-		waitToElementVisible(RegisterPageUI.GENDER_MALE_RADIO);
+		waitToElementVisible(RegisterPageUI.GENDER_MELE_RADIO);
 //		click
-		ClickToElement(RegisterPageUI.GENDER_MALE_RADIO);
+		ClickToElement(RegisterPageUI.GENDER_MELE_RADIO);
 			
+	}
+	
+	public void clickToGenderRadioButton(String textGender) {
+		waitToElementVisible(RegisterPageUI.GENDER_RADIO, textGender);
+		clickToElement(RegisterPageUI.GENDER_RADIO, textGender);
+		
+		
 	}
 
 	public void inputToFirstnameTextbox(String firstNameValue) {
-		waitToElementVisible(RegisterPageUI.FIRST_NAME_TEXTBOX);
+		waitToElementVisible(RegisterPageUI.FIRST_NAME_TEXTBOX, firstNameValue);
 		sendkeyToElement(RegisterPageUI.FIRST_NAME_TEXTBOX, firstNameValue);
 		
 	}
 
 	public void inputToLastnameTextbox(String lastNameValue) {
-		waitToElementVisible(RegisterPageUI.LAST_NAME_TEXTBOX);
+		waitToElementVisible(RegisterPageUI.LAST_NAME_TEXTBOX, lastNameValue);
 		sendkeyToElement(RegisterPageUI.LAST_NAME_TEXTBOX, lastNameValue);
 		
 	}
 
 	public void inputToEmailTextbox(String email) {
-		waitToElementVisible(RegisterPageUI.EMAIL_TEXTBOX);
+		waitToElementVisible(RegisterPageUI.EMAIL_TEXTBOX, email);
 		sendkeyToElement(RegisterPageUI.EMAIL_TEXTBOX, email);		
 	}
 
 	public void inputToPasswordTextbox(String passwordValue) {
-		waitToElementVisible(RegisterPageUI.PASSWORD_TEXTBOX);
+		waitToElementVisible(RegisterPageUI.PASSWORD_TEXTBOX, passwordValue);
 		sendkeyToElement(RegisterPageUI.PASSWORD_TEXTBOX, passwordValue);				
 	}
 
@@ -63,15 +71,13 @@ public class RegisterPO extends AbstractPageObject {
 	}
 
 	public String getSuccessMessageText() {
-		// TODO Auto-generated method stub
 		waitToElementVisible(RegisterPageUI.REGISTER_SUCCESS_TEXT);
 		return getTextElement(RegisterPageUI.REGISTER_SUCCESS_TEXT);
 	}
 	public HomePO clickToLogoutLink() {
-		// TODO Auto-generated method stub
 		waitToElementVisible(RegisterPageUI.LOGOUT_LINK);
 		ClickToElement(RegisterPageUI.LOGOUT_LINK);		
-		return PageGeneratorManager.getHomePage(driver);
+		return nopCommercePageGeneratorManager.getHomePage(driver);
 
 	}
 
@@ -80,11 +86,11 @@ public class RegisterPO extends AbstractPageObject {
 		waitToElementVisible(RegisterPageUI.REGISTER_FORM);
 		return isElementDisplayed(RegisterPageUI.REGISTER_FORM);
 	}
-
-
 	
-
-
+	public boolean isWarningREG (String warning) {
+		waitToElementVisible(AbstractPageNopcommerceUI.WARNING_REG, warning);
+		return isElementDisplayed(AbstractPageNopcommerceUI.WARNING_REG, warning);
+	}
 	
 }
  

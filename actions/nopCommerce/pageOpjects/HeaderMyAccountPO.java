@@ -17,7 +17,7 @@ public class HeaderMyAccountPO extends AbstractPageObject {
 	public SitemapPO openSiteMapPage(WebDriver driver) {
 		waitToElementVisible(HeaderMyAccountPageUI.FOOTER_SITEMAP_LINK);
 		ClickToElement(HeaderMyAccountPageUI.FOOTER_SITEMAP_LINK);
-		return PageGeneratorManager.getSitemapPage(driver);
+		return nopCommercePageGeneratorManager.getSitemapPage(driver);
 	}
 
 

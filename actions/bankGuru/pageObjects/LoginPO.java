@@ -18,7 +18,7 @@ public class LoginPO extends AbstractPageObject {
 	public RegisterPO clickToHereLink() {
 		waitToElementVisible(LoginPageUI.HERE_LINK);
 		ClickToElement(LoginPageUI.HERE_LINK);
-		return PageGeneratorManager.getRegisterPage(driver);
+		return BankGuruPageGeneratorManager.getRegisterPage(driver);
 	}
 	public void inputuserIDtextbox(String userID) {
 		waitToElementVisible(LoginPageUI.USER_ID_TEXTBOX);
@@ -33,16 +33,9 @@ public class LoginPO extends AbstractPageObject {
 	public HomePO clickToSubmitButton() {
 		waitToElementVisible(LoginPageUI.LOGIN_BUTTON);
 		ClickToElement(LoginPageUI.LOGIN_BUTTON);
-		return PageGeneratorManager.getHomePage(driver);
+		return BankGuruPageGeneratorManager.getHomePage(driver);
 	}
-	public void inputuserIDtextbox() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void inputpasswordtextbox() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 
 }

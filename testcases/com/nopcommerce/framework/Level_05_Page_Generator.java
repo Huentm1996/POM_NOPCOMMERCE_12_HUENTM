@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import commons.AbstractPageObject;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 
 
@@ -52,13 +52,13 @@ public class Level_05_Page_Generator {
 	@Test
 	public void TC_01_Register() {
 		System.out.println("Open Url - Navigate den trang Home Page");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		System.out.println("HomePage - Click to Register link");
 		registerPage = homePage.clickToRegisterLink();
 		
 		System.out.println("Register Page - Click to Gender radio button");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		
 		System.out.println("Register Page - Input to Firstname textbox");
 		registerPage.inputToFirstnameTextbox("John");

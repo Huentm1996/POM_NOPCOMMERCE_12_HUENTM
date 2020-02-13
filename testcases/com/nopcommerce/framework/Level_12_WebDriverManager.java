@@ -28,7 +28,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -52,7 +52,7 @@ public class Level_12_WebDriverManager extends AbstractTest {
 		
 		email = "jond_wick_" + randomNumber() + "@hotmail.com";
 		password = "AutomationTesting";
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		Assert.assertTrue(false);
 	}

@@ -27,7 +27,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -66,13 +66,13 @@ public class Level_09_Dynamic_Rest_Parameter extends AbstractTest {
 	@Test
 	public void TC_01_Register() {
 		System.out.println("Open Url - Navigate den trang Home Page");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		System.out.println("HomePage - Click to Register link");
 		registerPage = homePage.openRegisterPage(driver);
 		
 		System.out.println("Register Page - Click to Gender radio button");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		
 		System.out.println("Register Page - Input to Firstname textbox");
 		registerPage.inputToFirstnameTextbox("John");
@@ -126,58 +126,58 @@ public class Level_09_Dynamic_Rest_Parameter extends AbstractTest {
 	@Test
 	public void TC_03_LessPage_Dynamic_Locator() {
 //		HomePage ->> Footer My Account (Customer info)
-		footerMyAccountPage = (FooterMyAccountPO) homePage.openMultiplePage("My account");
+		footerMyAccountPage = (FooterMyAccountPO) homePage.openMultiplenNopCommercePage("My account");
 		
 //		Footer My Account -> Site Map
-		sitemapPage = (SitemapPO) footerMyAccountPage.openMultiplePage("Sitemap");
+		sitemapPage = (SitemapPO) footerMyAccountPage.openMultiplenNopCommercePage("Sitemap");
 		
 //		Site map -> Shipping & returns
-		shippingreturnPage = (Shipping_ReturnPO) sitemapPage.openMultiplePage("Shipping & returns");
+		shippingreturnPage = (Shipping_ReturnPO) sitemapPage.openMultiplenNopCommercePage("Shipping & returns");
 		
 //		Shipping & return ->> Footer My Account
-		footerMyAccountPage = (FooterMyAccountPO) shippingreturnPage.openMultiplePage("My account");
+		footerMyAccountPage = (FooterMyAccountPO) shippingreturnPage.openMultiplenNopCommercePage("My account");
 		
 //		Footer My Account ->> Search
-		searchPage = (SearchPO) footerMyAccountPage.openMultiplePage("Search");
+		searchPage = (SearchPO) footerMyAccountPage.openMultiplenNopCommercePage("Search");
 		
 //		Search ->> Shipping & returns
-		shippingreturnPage = (Shipping_ReturnPO) searchPage.openMultiplePage("Shipping & returns");
+		shippingreturnPage = (Shipping_ReturnPO) searchPage.openMultiplenNopCommercePage("Shipping & returns");
 		
 //		Shipping & return ->> Footer My Account
-		footerMyAccountPage = (FooterMyAccountPO) shippingreturnPage.openMultiplePage("My account");
+		footerMyAccountPage = (FooterMyAccountPO) shippingreturnPage.openMultiplenNopCommercePage("My account");
 	}
 	
 	@Test
 	public void TC_04_ManyPage_Dynamic_Locator() {
 //		HomePage ->> Footer My Account (Customer info)
 		homePage.openMultiplePages("My account");
-		footerMyAccountPage = PageGeneratorManager.getFooterMyAccountPage(driver);
+		footerMyAccountPage = nopCommercePageGeneratorManager.getFooterMyAccountPage(driver);
 //		Assert.assertTrue(footerMyAccountPage.isfooterMyAccountPageDisplayed());
 		
 //		Footer My Account -> Site Map
 		footerMyAccountPage.openMultiplePages("Sitemap");
 //		Tính đóng gói (Encapsolution)
-		sitemapPage = PageGeneratorManager.getSitemapPage(driver);
+		sitemapPage = nopCommercePageGeneratorManager.getSitemapPage(driver);
 		
 //		Site map -> Shipping & returns
 		sitemapPage.openMultiplePages("Shipping & returns");
-		shippingreturnPage = PageGeneratorManager.getShipping_ReturnPage(driver);
+		shippingreturnPage = nopCommercePageGeneratorManager.getShipping_ReturnPage(driver);
 			
 //		Shipping & return ->> Footer My Account
 		shippingreturnPage.openMultiplePages("My account");
-		footerMyAccountPage = PageGeneratorManager.getFooterMyAccountPage(driver);
+		footerMyAccountPage = nopCommercePageGeneratorManager.getFooterMyAccountPage(driver);
 		
 //		Footer My Account ->> Search
 		footerMyAccountPage.openMultiplePages("Search");
-		searchPage = PageGeneratorManager.getSearchPage(driver);
+		searchPage = nopCommercePageGeneratorManager.getSearchPage(driver);
 		
 //		Search ->> Shipping & returns
 		searchPage.openMultiplePages("Shipping & returns");
-		shippingreturnPage = PageGeneratorManager.getShipping_ReturnPage(driver);
+		shippingreturnPage = nopCommercePageGeneratorManager.getShipping_ReturnPage(driver);
 
 //		Shipping & return ->> Footer My Account
 		shippingreturnPage.openMultiplePages("My account");
-		footerMyAccountPage = PageGeneratorManager.getFooterMyAccountPage(driver);
+		footerMyAccountPage = nopCommercePageGeneratorManager.getFooterMyAccountPage(driver);
 	}
 
 	@AfterClass

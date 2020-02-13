@@ -13,5 +13,14 @@ public class FooterMyAccountPageUI {
 	public static final String FOOTER_SHIPPING_AND_RETURN_LINK = "//div[@class='footer']//a[text()='Sitemap']";
 	public static final String FOOTER_SEARCH_LINK = "//div[@class='footer']//a[text()='Search']";
 	
+	public static final String SubPage_MYACCOUNT = "//div[@class='listbox']//ul[@class='list']//a[@class='inactive'][contains(text(),'%s')]";
+	public static final String ADDRESS_MYACC = "//a[@class='inactive'][contains(text(),'Addresses')]";
+	
+//	public static final String BtnADDNEW ="//input[@class='button-1 add-address-button']";
+	public static final String BtnDYNAMIC = "//input[@class='%s']";
+	public static final String changePASSWORD = "//input[@id='%s']";
+	public static final String MessageCHANGEPASS = "//div[@class='result']";
+	
+	public static final String BodyREVIEW = "//div[@class=\"product-review-item\"]";
 
 }

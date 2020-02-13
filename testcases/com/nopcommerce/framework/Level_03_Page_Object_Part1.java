@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import commons.AbstractPageObject;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import pageFactory.HomePageFactory;
 
@@ -59,7 +59,7 @@ public class Level_03_Page_Object_Part1 {
 		registerPage = new RegisterPO(driver);
 		
 		System.out.println("Register Page - Click to Gender radio button");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		
 		System.out.println("Register Page - Input to Firstname textbox");
 		registerPage.inputToFirstnameTextbox("John");

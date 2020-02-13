@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -61,11 +63,11 @@ public class AbstractTest {
 			driver = new FirefoxDriver(options);
 			
 		} else if(browserName.equalsIgnoreCase("chrome_ui")) {
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			
 		} else if(browserName.equalsIgnoreCase("chrome_headless")) {
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.chromedriver().setup();
 			
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(true);
@@ -235,5 +237,33 @@ public class AbstractTest {
 		} catch (Exception e) {
 			log.info(e.getMessage());
 		}
+	}
+	protected String getCurrentDay() {
+		DateTime nowUTC = new DateTime(DateTimeZone.UTC);
+		int day = nowUTC.getDayOfMonth();
+		if (day < 10) {
+			String dayValue = "0" + day;
+			return dayValue;
+		}
+		return day + "";
+	}
+
+	protected String getCurrentMonth() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		int month = now.getMonthOfYear();
+		if (month < 10) {
+			String monthValue = "0" + month;
+			return monthValue;
+		}
+		return month + "";
+	}
+
+	protected String getCurrentYear() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		return now.getYear() + "";
+	}
+
+	protected String getToday() {
+		return getCurrentYear() + "-" + getCurrentMonth() + "-" + getCurrentDay();
 	}
 }

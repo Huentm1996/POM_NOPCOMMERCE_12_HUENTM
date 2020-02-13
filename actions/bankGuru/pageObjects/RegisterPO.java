@@ -29,7 +29,7 @@ public class RegisterPO extends AbstractPageObject {
 	}
 	public LoginPO openLoginPage(String loginPageurl) {
 		openUrl(loginPageurl);
-		return PageGeneratorManager.getLoginPage(driver);
+		return BankGuruPageGeneratorManager.getLoginPage(driver);
 	}
 
 	public void inputEmailIDTextbox(String email) {

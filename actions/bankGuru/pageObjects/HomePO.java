@@ -15,5 +15,7 @@ public class HomePO extends AbstractPageObject {
 		waitToElementVisible(HomePageUI.WELL_MESSAGE_SUCCESS);
 		return isElementDisplayed(HomePageUI.WELL_MESSAGE_SUCCESS);
 	}
+	
+
 
 }

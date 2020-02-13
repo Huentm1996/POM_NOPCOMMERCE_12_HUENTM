@@ -30,7 +30,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -49,7 +49,7 @@ public class Sort_02 extends AbstractTest {
 	@BeforeClass
  	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 //		Login
 		log.info("Precondition - Step 01: Click to Login link");

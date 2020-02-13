@@ -27,7 +27,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -69,13 +69,13 @@ public class Level_08_WebDriverLifeCycle_ActionChaining extends AbstractTest {
 	@Test
 	public void TC_01_Register() {
 		System.out.println("Open Url - Navigate den trang Home Page");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		System.out.println("HomePage - Click to Register link");
 		registerPage = homePage.openRegisterPage(driver);
 		
 		System.out.println("Register Page - Click to Gender radio button");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		
 		System.out.println("Register Page - Input to Firstname textbox");
 		registerPage.inputToFirstnameTextbox("John");

@@ -29,7 +29,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -50,7 +50,7 @@ public class Common_01_RegisterToSystem extends AbstractTest {
 		
 		EMAIL = "jond_wick_" + randomNumber() + "@hotmail.com";
 		PASSWORD = "Pass111@@@";
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		log.info("Register - Step 01: Click to Register link");
 		registerPage = homePage.openRegisterPage(driver);
@@ -60,7 +60,7 @@ public class Common_01_RegisterToSystem extends AbstractTest {
 		verifyTrue(registerPage.isRegisterPageDisplayed());
 		
 		log.info("Register - Step 03: Input data to all required fields");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		registerPage.inputToFirstnameTextbox("John");
 		registerPage.inputToLastnameTextbox("Wick");
 		registerPage.inputToEmailTextbox(EMAIL);

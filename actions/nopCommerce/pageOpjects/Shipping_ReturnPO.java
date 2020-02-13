@@ -17,7 +17,7 @@ public class Shipping_ReturnPO extends AbstractPageObject{
 	public FooterMyAccountPO openFooterMyAccountPage(WebDriver driverGlobal) {
 		waitToElementVisible(Shipping_Return_PageUI.FOOTER_MY_ACCOUNT_LINK);
 		ClickToElement(Shipping_Return_PageUI.FOOTER_MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getFooterMyAccountPage(driverGlobal);
+		return nopCommercePageGeneratorManager.getFooterMyAccountPage(driverGlobal);
 	}
 
 }

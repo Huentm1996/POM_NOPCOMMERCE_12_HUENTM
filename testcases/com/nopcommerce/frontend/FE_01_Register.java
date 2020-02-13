@@ -14,10 +14,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.sun.javafx.binding.SelectBinding.AsBoolean;
+
 import commons.AbstractTest;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 
 public class FE_01_Register extends AbstractTest{
@@ -36,7 +38,7 @@ public class FE_01_Register extends AbstractTest{
 		
 		email = "jond_wick_" + randomNumber() + "@hotmail.com";
 		password = "AutomationTesting";
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 	  
   }
@@ -57,17 +59,18 @@ public class FE_01_Register extends AbstractTest{
 	  registerPage.inputToComfirmPasswordTextbox("");
 	  registerPage.clickToRegisterButton();
 	  
-	  log.info("Register - Step 04: Verify success message displayed-01");
+	  verifyTrue(registerPage.isWarningREG("First name is required."));
+	  verifyTrue(registerPage.isWarningREG("Last name is required."));
+	  verifyTrue(registerPage.isWarningREG("Email is required."));
+	  verifyTrue(registerPage.isWarningREG("Password is required."));
 	  verifyFalse(registerPage.isSuccessMessageDisplayed());
-	  
-	  log.info("Register - Step 05: Verify success massage displayed-02");
-//	  verifyEquals(registerPage.getSuccessMessageText(), "Your registration completed");
+
 	  
 	  log.info("Register - Step 06: Click to Logout Link");
 	  homePage = registerPage.clickToLogoutLink();
 	  }
   
-  @Test
+//  @Test
   public void TC_02_Register_with_InvalidEmail(){
 	  log.info("Register - Step 01: Click to Register link");
 	  registerPage = homePage.openRegisterPage(driver);
@@ -76,7 +79,7 @@ public class FE_01_Register extends AbstractTest{
 	  verifyTrue(registerPage.isRegisterPageDisplayed());
 	    
 	  log.info("Register - Step 03: Input data to all required fields");
-	  registerPage.clickToMaleRadioButton();
+	  registerPage.clickToGenderRadioButton();
 	  registerPage.inputToFirstnameTextbox("John");
 	  registerPage.inputToLastnameTextbox("Wick");
 	  registerPage.inputToEmailTextbox("");
@@ -93,7 +96,7 @@ public class FE_01_Register extends AbstractTest{
 	  log.info("Register - Step 06: Click to Logout Link");
 	  homePage = registerPage.clickToLogoutLink();
   }
-  @Test
+//  @Test
   public void TC_03_Register_with_EmailAlreadyExists() {
 	  log.info("Register - Step 01: Click to Register link");
 	  registerPage = homePage.openRegisterPage(driver);
@@ -102,7 +105,7 @@ public class FE_01_Register extends AbstractTest{
 	  verifyTrue(registerPage.isRegisterPageDisplayed());
 	    
 	  log.info("Register - Step 03: Input data to all required fields");
-	  registerPage.clickToMaleRadioButton();
+	  registerPage.clickToGenderRadioButton();
 	  registerPage.inputToFirstnameTextbox("John");
 	  registerPage.inputToLastnameTextbox("Wick");
 	  registerPage.inputToEmailTextbox("John_Wick_11111@gmail.com");
@@ -119,7 +122,7 @@ public class FE_01_Register extends AbstractTest{
 	  log.info("Register - Step 06: Click to Logout Link");
 	  homePage = registerPage.clickToLogoutLink();
   }
-  @Test
+//  @Test
   public void TC_04_Register_with_PasswordLessThan6Chars() {
 	  log.info("Register - Step 01: Click to Register link");
 	  registerPage = homePage.openRegisterPage(driver);
@@ -128,7 +131,7 @@ public class FE_01_Register extends AbstractTest{
 	  verifyTrue(registerPage.isRegisterPageDisplayed());
 	    
 	  log.info("Register - Step 03: Input data to all required fields");
-	  registerPage.clickToMaleRadioButton();
+	  registerPage.clickToGenderRadioButton();
 	  registerPage.inputToFirstnameTextbox("John");
 	  registerPage.inputToLastnameTextbox("Wick");
 	  registerPage.inputToEmailTextbox(email);
@@ -145,7 +148,7 @@ public class FE_01_Register extends AbstractTest{
 	  log.info("Register - Step 06: Click to Logout Link");
 	  homePage = registerPage.clickToLogoutLink();
   }
-  @Test
+//  @Test
   public void TC_05_Register_with_ConfirmPassword_notMatch_Password() {
 	  log.info("Register - Step 01: Click to Register link");
 	  registerPage = homePage.openRegisterPage(driver);
@@ -154,7 +157,7 @@ public class FE_01_Register extends AbstractTest{
 	  verifyTrue(registerPage.isRegisterPageDisplayed());
 	    
 	  log.info("Register - Step 03: Input data to all required fields");
-	  registerPage.clickToMaleRadioButton();
+	  registerPage.clickToGenderRadioButton();
 	  registerPage.inputToFirstnameTextbox("John");
 	  registerPage.inputToLastnameTextbox("Wick");
 	  registerPage.inputToEmailTextbox(email);
@@ -171,7 +174,7 @@ public class FE_01_Register extends AbstractTest{
 	  log.info("Register - Step 06: Click to Logout Link");
 	  homePage = registerPage.clickToLogoutLink();
   }
-  @Test
+//  @Test
   public void TC_06_Register_Valid() {
 	  log.info("Register - Step 01: Click to Register link");
 	  registerPage = homePage.openRegisterPage(driver);
@@ -180,7 +183,7 @@ public class FE_01_Register extends AbstractTest{
 	  verifyTrue(registerPage.isRegisterPageDisplayed());
 	    
 	  log.info("Register - Step 03: Input data to all required fields");
-	  registerPage.clickToMaleRadioButton();
+	  registerPage.clickToGenderRadioButton();
 	  registerPage.inputToFirstnameTextbox("John");
 	  registerPage.inputToLastnameTextbox("Wick");
 	  registerPage.inputToEmailTextbox(email);

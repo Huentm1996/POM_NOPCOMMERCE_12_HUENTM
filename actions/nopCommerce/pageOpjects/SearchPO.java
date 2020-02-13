@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPageObject;
 
 public class SearchPO extends AbstractPageObject {
-	WebDriver DriverGlobal;
+	WebDriver driver;
 
 	public SearchPO(WebDriver driverLocal) {
 		super(driverLocal);
-		DriverGlobal = driverLocal;
+		driver = driverLocal;
 	}
 
 }

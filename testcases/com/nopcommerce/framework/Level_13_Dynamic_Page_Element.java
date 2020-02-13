@@ -23,7 +23,7 @@ import commons.AbstractPageObject;
 import commons.AbstractTest;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 
 public class Level_13_Dynamic_Page_Element extends AbstractTest {
@@ -45,7 +45,7 @@ public class Level_13_Dynamic_Page_Element extends AbstractTest {
 		
 		email = "jond_wick_" + randomNumber() + "@hotmail.com";
 		password = "AutomationTesting";
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 
 	}
 	@Test
@@ -125,7 +125,7 @@ public class Level_13_Dynamic_Page_Element extends AbstractTest {
 		
 		log.info("Login - Step 04: Click to Login button");
 		loginPage.clickToDynamicButton("Log in");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		log.info("Login - Step 05: Verify My Account and Logout link displayed");
 //		verifyFalse(homePage.isMyAccountLinkDisplayed());

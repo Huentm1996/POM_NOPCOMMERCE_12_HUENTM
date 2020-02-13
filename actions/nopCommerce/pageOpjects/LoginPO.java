@@ -28,7 +28,7 @@ public class LoginPO extends AbstractPageObject {
 	public HomePO clickToLoginButton() {
 		waitToElementVisible(LoginPageUI.LOGIN_BUTTON);
 		ClickToElement(LoginPageUI.LOGIN_BUTTON);
-		return PageGeneratorManager.getHomePage(driver);
+		return nopCommercePageGeneratorManager.getHomePage(driver);
 		
 	}
 

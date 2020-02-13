@@ -28,7 +28,7 @@ import nopCommerce.pageOpjects.FooterMyAccountPO;
 import nopCommerce.pageOpjects.HeaderMyAccountPO;
 import nopCommerce.pageOpjects.HomePO;
 import nopCommerce.pageOpjects.LoginPO;
-import nopCommerce.pageOpjects.PageGeneratorManager;
+import nopCommerce.pageOpjects.nopCommercePageGeneratorManager;
 import nopCommerce.pageOpjects.RegisterPO;
 import nopCommerce.pageOpjects.SearchPO;
 import nopCommerce.pageOpjects.Shipping_ReturnPO;
@@ -51,7 +51,7 @@ public class Level_11_Assert_Verify extends AbstractTest {
 		
 		email = "jond_wick_" + randomNumber() + "@hotmail.com";
 		password = "AutomationTesting";
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = nopCommercePageGeneratorManager.getHomePage(driver);
 		
 		log.info("Preconditon - Step 01: Click to Register link");
 		log.info("Preconditon - Step 01: Click to Register link");
@@ -70,7 +70,7 @@ public class Level_11_Assert_Verify extends AbstractTest {
 		verifyTrue(registerPage.isRegisterPageDisplayed());
 		
 		log.info("Register - Step 03: Input data to all required fields");
-		registerPage.clickToMaleRadioButton();
+		registerPage.clickToGenderRadioButton();
 		registerPage.inputToFirstnameTextbox("John");
 		registerPage.inputToLastnameTextbox("Wick");
 		registerPage.inputToEmailTextbox(email);

@@ -2,7 +2,7 @@ package nopCommerce.pageOpjects;
 
 import org.openqa.selenium.WebDriver;
 
-public class PageGeneratorManager {
+public class nopCommercePageGeneratorManager {
 	public static HomePO getHomePage(WebDriver driver) {
 		return new HomePO(driver);		
 	}
@@ -33,6 +33,12 @@ public class PageGeneratorManager {
 	public static SitemapPO getSitemapPage(WebDriver driver) {
 		return new SitemapPO(driver);
 	}
+
+	public static MyAccountPO getMyAccountPage(WebDriver driver) {
+		return new MyAccountPO(driver);
+	}
+
+	
 
 
 
